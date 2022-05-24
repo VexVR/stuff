@@ -1,0 +1,31 @@
+local Frame = Instance.new("Frame")
+local Text = Instance.new("TextLabel")
+local Corner = Instance.new("UICorner")
+local index = 0
+
+local function drawString(pos, size, text, tsize, font , parent)
+	index += 1
+	Text.Name = index
+	Text.Text = text
+	Text.AnchorPoint = Vector2.new(0.5, 0.5)
+	Text.Position = pos
+	Text.Size = size
+	Text.Parent = parent
+	Text.BackgroundTransparency = 1
+	Text.TextSize = tsize
+	Text.Font = font
+end
+
+local function drawFrame(pos , size , backgroundtransparency , color , parent , round , amount)
+	Frame.AnchorPoint = Vector2.new(0.5,0.5)
+	Frame.Position = pos
+	Frame.Size = size
+	Frame.Parent = parent
+	Frame.BackgroundTransparency = backgroundtransparency
+	Frame.BackgroundColor3 = color
+	Frame.BorderSizePixel = 0
+	if round == true then
+		Corner.Parent = Frame
+		Corner.CornerRadius = amount
+	end
+end
